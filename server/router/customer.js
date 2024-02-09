@@ -11,7 +11,18 @@ router.get("/", (request, response) => {
     })
 })
 
+router.get("/cid/:cid", (request, response) => {
+    const sql = "SELECT * FROM products WHERE cid=?"
+    db.query(sql, [request.params.cid], (error, data) => {
+      response.send(utils.createResult(error, data))
+    })
+  })
 
-
+router.get("/:sid", (request, response) => {
+   const sql = "SELECT * FROM products WHERE sid=?"
+   db.query(sql, [request.params.sid], (error, data) => {
+     response.send(utils.createResult(error, data))
+   })
+ })
 
 module.exports = router

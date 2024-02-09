@@ -1,5 +1,7 @@
 create database DmcProjectDb;
 
+use DmcProjectDb;
+
 -- 1. users table
 create table users(
 	uid int primary key auto_increment,
@@ -85,7 +87,19 @@ insert into subcategory values ( 4, 'Nose Ring' );
 -- ============================================================================
 
 -- 7. Cart
--- - cart_id, qty, p_id(FK)
+-- cart_id, qty, p_id(FK) [not applicable]
+create table cart(
+	cart_id int primary key auto_increment,
+	uid int,
+	pid int,
+	qty int,
+	price double,
+	total double
+);
+
+-- manual insert for testing
+insert into cart values (0, 2, 1, 4, 80000, 320000);
+insert into cart values (0, 3, 2, 5, 60000, 300000);
 
 -- ============================================================================
 

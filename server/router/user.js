@@ -44,13 +44,5 @@ router.post("/login", (request, response) => {
   });
 });
 
-// router.post("/login", (request, response) => {
-//   const { email, password } = request.body
-//   const sql = "SELECT * FROM users WHERE email=? AND password=?"
-//   db.query(sql, [email, password], (error, data) => {
-//     console.log(data);
-//     response.send(utils.createResult(error, data))
-//   })
-// })
 
 module.exports = router
