@@ -12,8 +12,8 @@ router.get("/", (request, response) => {
                 from 
                     cart c, products p 
                 where 
-                    (c.pid = p.pid) and (uid = ?)`
-    db.query(sql, [request.user.uid], (error, data) => {
+                    (c.pid = p.pid) and (uid = 2)`
+    db.query(sql, (error, data) => {
         response.send(utils.createResult(error, data))
     })
 })

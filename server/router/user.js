@@ -35,7 +35,7 @@ router.post("/login", (request, response) => {
       if (user.role === 'admin') {
         response.redirect('/admin');
       } else {
-        response.redirect('/customer');
+        response.redirect('/');
       }
     } else {
       const result = utils.createResult('Invalid credentials', null);
