@@ -13,6 +13,7 @@ import Platinum from './pages/Platinum';
 import Wishlist from './pages/Wishlist';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
+import AdminHomePage from './pages/AdminHomePage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -33,6 +34,7 @@ root.render(
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admin" element={<AdminHomePage />} />
 
       </Routes>
     </Router>

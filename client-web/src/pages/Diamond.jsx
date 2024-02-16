@@ -7,7 +7,7 @@ import diamondNecklace from '../images/diamondNecklace.webp';
 import diamondRing from '../images/diamondRing.webp';
 import diamondEarring from '../images/diamondEarring.png';
 import diamondNosering from '../images/diamondNosering.png';
-// Import other gold product images as needed
+import { Link } from 'react-router-dom';
 
 const Diamond = () => {
     const diamondProducts = [
@@ -21,7 +21,7 @@ const Diamond = () => {
         { name: 'Diamond Earring', image: diamondEarring, price: '₹190000' },
         { name: 'Diamond Nose Ring', image: diamondNosering, price: '₹150000' },
 
-        // Add more gold products as needed
+    
     ];
 
     return (
@@ -37,7 +37,7 @@ const Diamond = () => {
                             alt={product.name}
                             height="140"
                             image={product.image}
-                            // title={product.name}
+                        
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2" style={{color: "#832729", fontWeight: "bold"}}>
@@ -46,7 +46,7 @@ const Diamond = () => {
                             <Typography variant="subtitle1" color="inherit" component="p">
                                 Price: {product.price}
                             </Typography>
-                            <Button variant='outlined' style={{color: "#832729", fontWeight: "bold", marginBottom: "-15px"}}>
+                            <Button variant='outlined' component={Link} to="/cart" style={{color: "#832729", fontWeight: "bold", marginBottom: "-15px"}}>
                                 Add to Cart
                             </Button>
                         </CardContent>

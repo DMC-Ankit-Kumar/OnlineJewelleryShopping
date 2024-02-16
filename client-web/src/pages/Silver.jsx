@@ -7,7 +7,8 @@ import silverNecklace from '../images/silverNecklace.jpg';
 import silverRing from '../images/silverRing.webp';
 import silverEarring from '../images/silverEarring.jpg';
 import siverNosering from '../images/siverNosering.webp';
-// Import other gold product images as needed
+import { Link } from 'react-router-dom';
+
 
 const Silver = () => {
     const silverProducts = [
@@ -21,7 +22,7 @@ const Silver = () => {
         { name: 'Siver Earring', image: silverEarring, price: '₹1000' },
         { name: 'Siver Nose Ring', image: siverNosering, price: '₹1500' },
 
-        // Add more gold products as needed
+        
     ];
 
     return (
@@ -37,7 +38,7 @@ const Silver = () => {
                             alt={product.name}
                             height="140"
                             image={product.image}
-                            // title={product.name}
+                            
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2" style={{color: "#832729", fontWeight: "bold"}}>
@@ -46,7 +47,7 @@ const Silver = () => {
                             <Typography variant="subtitle1" color="inherit" component="p">
                                 Price: {product.price}
                             </Typography>
-                            <Button variant='outlined' style={{color: "#832729", fontWeight: "bold", marginBottom: "-15px"}}>
+                            <Button variant='outlined' component={Link} to="/cart" style={{color: "#832729", fontWeight: "bold", marginBottom: "-15px"}}>
                                 Add to Cart
                             </Button>
                         </CardContent>

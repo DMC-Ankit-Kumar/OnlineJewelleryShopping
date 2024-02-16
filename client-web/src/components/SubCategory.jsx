@@ -1,4 +1,3 @@
-// src/SubCategory.js
 import React from 'react';
 import { Container, Typography, Card, CardContent, Button } from '@mui/material';
 import necklaceImg from '../images/necklace.jpeg';
@@ -17,7 +16,7 @@ const subcategoryImages = {
 
 const SubCategory = () => {
   const handleSubCategoryClick = (subCategory) => {
-    // Add your logic for handling sub-category click
+    
     console.log(`Selected sub-category: ${subCategory}`);
   };
 
@@ -32,11 +31,11 @@ const SubCategory = () => {
             key={index} 
             sx={{ 
               width: 200,
-              color: '#832729', // Adjust text color for better readability
+              color: '#832729', 
               }}>
             <CardContent
               sx={{ 
-                backgroundImage: `url(${subcategoryImages[subCategory]})`, // Set background image based on category
+                backgroundImage: `url(${subcategoryImages[subCategory]})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}

@@ -20,7 +20,7 @@ const FourCardGridCategory = () => {
                             alt="Gold"
                             height="140"
                             image={goldImg}
-                            // title="Gold"
+                            
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2" style={{ color: "#832729", fontWeight: "bold" }} >
@@ -43,7 +43,7 @@ const FourCardGridCategory = () => {
                             alt="Silver"
                             height="140"
                             image={silverImg}
-                            // title="Silver"
+                            
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2" style={{ color: "#832729", fontWeight: "bold" }} >
@@ -66,7 +66,7 @@ const FourCardGridCategory = () => {
                             alt="Diamond"
                             height="140"
                             image={diamondImg}
-                            // title="Diamond"
+                            
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2" style={{ color: "#832729", fontWeight: "bold" }} >
@@ -89,7 +89,7 @@ const FourCardGridCategory = () => {
                             alt="Platinum"
                             height="140"
                             image={platinumImg}
-                            // title="Platinum"
+                            
                         />
                         <CardContent>
                             <Typography variant="h5" component="h2" style={{ color: "#832729", fontWeight: "bold" }} >

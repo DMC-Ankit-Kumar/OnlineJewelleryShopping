@@ -7,7 +7,6 @@ import goldNecklace from '../images/goldNecklace.webp';
 import goldRing from '../images/goldRing.webp';
 import platinumEarring from '../images/platinumEarring.webp';
 import platinumNosering from '../images/platinumNosering.jpg';
-// Import other gold product images as needed
 
 const Cart = () => {
     const list = [
@@ -16,7 +15,6 @@ const Cart = () => {
         { name: 'Platinum Earring', image: platinumEarring, price: '₹10000' },
         { name: 'Platinum Nose Ring', image: platinumNosering, price: '₹6000' },
 
-        // Add more gold products as needed
     ];
 
     return (
@@ -35,7 +33,6 @@ const Cart = () => {
                                     alt={product.name}
                                     height="140"
                                     image={product.image}
-                                // title={product.name}
                                 />
                                 <CardContent>
                                     <Typography variant="h5" component="h2" style={{ color: "#832729", fontWeight: "bold" }}>

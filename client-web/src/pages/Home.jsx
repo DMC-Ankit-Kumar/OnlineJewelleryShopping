@@ -1,7 +1,5 @@
-// src/Dashboard.js
 import React from 'react';
 import {  Container } from '@mui/material';
-
 // import Category from '../components/Category';
 // import SubCategory from '../components/SubCategory';
 import Navbar from '../components/Navbar';
@@ -17,9 +15,6 @@ const Home = () => {
       <Navbar />
       <Container>
         <CustomCarousel />
-        {/* <Category /> */}
-        {/* <Category2 /> */}
-        {/* <SubCategory /> */}
         <FourCardGridCategory />
         <FourCardGridSubCategory />
       </Container>

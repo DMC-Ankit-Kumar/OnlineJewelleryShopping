@@ -1,4 +1,3 @@
-// src/CategoryCard.js
 import React from 'react';
 import { Card, CardContent, Button, Typography } from '@mui/material';
 
@@ -7,10 +6,10 @@ const CategoryCard = ({ category, image, onClick }) => {
     <Card 
       sx={{ 
         width: 200,
-        backgroundImage: `url(${image})`, // Set background image based on category
+        backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        color: '#832729', // Adjust text color for better readability
+        color: '#832729',
       }}>
       <CardContent>
         <Typography variant="h5" sx={{fontWeight: "bold"}} >{category}</Typography>

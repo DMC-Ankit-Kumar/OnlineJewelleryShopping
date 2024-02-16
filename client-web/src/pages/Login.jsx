@@ -1,4 +1,3 @@
-// src/Login.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
@@ -8,7 +7,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Implement your login logic here
     console.log('Email:', email);
     console.log('Password:', password);
   };
@@ -70,7 +68,6 @@ const Login = () => {
 
         <Typography sx={{ mt: 2 }}>
           Go to homepage.. 
-          {/* <Button variant='text' component={Link} to='/home' >Skip</Button> */}
           <Link to="/home">Skip</Link>
         </Typography>
 

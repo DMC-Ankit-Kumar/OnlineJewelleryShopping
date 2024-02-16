@@ -1,4 +1,3 @@
-// src/Register.js
 import React, { useState } from 'react';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -11,7 +10,6 @@ const Register = () => {
   const [address, setAddress] = useState('');
 
   const handleRegister = () => {
-    // Implement your registration logic here
     console.log('Name:', name);
     console.log('Mobile:', mobile);
     console.log('Email:', email);

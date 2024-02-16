@@ -1,7 +1,6 @@
-// src/Category.js
 import React from 'react';
 import { Container, Typography } from '@mui/material';
-import CategoryCard from './CategoryCard'; // Import the CategoryCard component
+import CategoryCard from './CategoryCard';
 import goldImg from '../images/gold.jpg';
 import silverImg from '../images/silver.jpg';
 import diamondImg from '../images/diamond.png';
@@ -18,7 +17,6 @@ const categoryImages = {
 
 const Category2 = () => {
   const handleCategoryClick = (category) => {
-    // Add your logic for handling category click
     console.log(`Selected category: ${category}`);
   };
 

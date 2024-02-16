@@ -13,12 +13,12 @@ const CustomCarousel = () => {
     <div>
       
       <Carousel
-        autoPlay={true} // Set to true for autoplay
-        interval={5000} // Autoplay interval in ms
-        animation="fade" // Slide animation
-        indicators={false} // Remove indicators
-        navButtonsAlwaysVisible // Always show navigation buttons
-        navButtonsProps={{ // Customizing navigation buttons
+        autoPlay={true}
+        interval={5000}
+        animation="fade"
+        indicators={false}
+        navButtonsAlwaysVisible
+        navButtonsProps={{ 
           style: {
             backgroundColor: '#832729',
             borderRadius: '50%',

@@ -1,4 +1,3 @@
-// src/Category.js
 import React from 'react';
 import { Container, Typography, Card, CardContent, Button } from '@mui/material';
 import goldImg from '../images/gold.jpg';
@@ -17,7 +16,6 @@ const categoryImages = {
 
 const Category = () => {
   const handleCategoryClick = (category) => {
-    // Add your logic for handling category click
     console.log(`Selected category: ${category}`);
   };
 
@@ -33,10 +31,10 @@ const Category = () => {
             key={index} 
             sx={{ 
               width: 200,
-              backgroundImage: `url(${categoryImages[category]})`, // Set background image based on category
+              backgroundImage: `url(${categoryImages[category]})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              color: '#832729', // Adjust text color for better readability
+              color: '#832729',
               }}>
             <CardContent>
               <Typography variant="h5" sx={{fontWeight: "bold"}} >{category}</Typography>
