@@ -6,8 +6,6 @@ const router = express.Router()
 
 router.post("/register", (request, response) => {
   const { uname,mobile,email,password,address } = request.body
-  // const sql =
-  //   "INSERT INTO users(first_name,last_name,email,password,mobile) VALUES(?,?,?,?,?)"
     const sql =
     "INSERT INTO users(uname,mobile,email,password,address) VALUES(?,?,?,?,?)"
   db.query(
@@ -35,7 +33,7 @@ router.post("/login", (request, response) => {
       if (user.role === 'admin') {
         response.redirect('/admin');
       } else {
-        response.redirect('/');
+        response.redirect('/customer');
       }
     } else {
       const result = utils.createResult('Invalid credentials', null);
