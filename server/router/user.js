@@ -17,6 +17,33 @@ router.post("/register", (request, response) => {
   )
 })
 
+// router.post("/login", (request, response) => {
+//   const { email, password } = request.body;
+//   const sql = "SELECT * FROM users WHERE email=? AND password=?";
+  
+//   db.query(sql, [email, password], (error, data) => {
+//     if (error) {
+//       const result = utils.createResult(error, null);
+//       return response.send(result);
+//     }
+
+//     if (data.length === 1) {
+//       const user = data[0];
+//       // Redirect based on user role
+//       if (user.role === 'admin') {
+//         response.redirect('/admin');
+//       } else {
+//         response.redirect('/customer');
+//       }
+//     } else {
+//       const result = utils.createResult('Invalid credentials', null);
+//       response.send(result);
+//     }
+//   });
+// });
+
+//--------------------------------------------------------------------
+
 router.post("/login", (request, response) => {
   const { email, password } = request.body;
   const sql = "SELECT * FROM users WHERE email=? AND password=?";
@@ -26,21 +53,41 @@ router.post("/login", (request, response) => {
       const result = utils.createResult(error, null);
       return response.send(result);
     }
-
     if (data.length === 1) {
       const user = data[0];
-      // Redirect based on user role
-      if (user.role === 'admin') {
-        response.redirect('/admin');
-      } else {
-        response.redirect('/customer');
-      }
+      // Send user's role in the response
+      const result = utils.createResult(null, { role: user.role });
+      response.send(result);
     } else {
       const result = utils.createResult('Invalid credentials', null);
       response.send(result);
     }
   });
 });
+
+// router.post("/login", (request, response) => {
+//   const { email, password } = request.body;
+//   const sql = "SELECT * FROM users WHERE email=? AND password=?";
+  
+//   db.query(sql, [email, password], (error, data) => {
+//     if (error) {
+//       const result = utils.createResult(error, null);
+//       return response.send(result);
+//     }
+//     if (data.length === 1) {
+//       const user = data[0];
+//       // Redirect based on user role
+//       if (user.role === 'admin') {
+//         response.redirect('/admin');
+//       } else {
+//         response.redirect('/customer');
+//       }
+//     } else {
+//       const result = utils.createResult('Invalid credentials', null);
+//       response.send(result);
+//     }
+//   });
+// });
 
 
 module.exports = router

@@ -1,13 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import { Avatar, Grid, Typography, TextField } from '@material-ui/core';
-// import nitaAmbani from '../images/nitaAmbani.jpg'
-import profileImg from '../images/profile.jpg'
+import profileImg from '../images/nitaAmbani.jpg'
+// import profileImg from '../images/profile.jpg'
 
 const Profile = () => {
     
     const profileData = {
-        name: 'User Name',
+        name: 'Nita Ambani',
         mobile: '+910000000009',
         email: 'user@gmail.com',
         address: '123 Main Street, City, Country',

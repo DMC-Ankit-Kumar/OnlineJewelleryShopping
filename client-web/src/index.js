@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
@@ -15,17 +16,17 @@ import Cart from './pages/Cart';
 import Profile from './pages/Profile';
 import AdminHomePage from './pages/AdminHomePage';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
     <Router>
       <Routes>
-        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Login />} />
         <Route path='/register' element={<Register />} />
 
-        <Route path='/' element={<Home />} />
+        {/* <Route path='/' element={<Home />} /> */}
+
         <Route path='/home' element={<Home />} />
         <Route path="/home/gold" element={<Gold />} />
         <Route path="/home/silver" element={<Silver />} />
@@ -40,6 +41,5 @@ root.render(
     </Router>
   </React.StrictMode>
 );
-
 
 reportWebVitals();

@@ -41,7 +41,7 @@ function Navbar() {
                         <IconButton color="inherit" component={Link} to="/profile">
                             <AccountCircle />
                         </IconButton>
-                        <IconButton color="inherit" component={Link} to="/login">
+                        <IconButton color="inherit" component={Link} to="/">
                             <ExitToApp />
                         </IconButton>
                     </Toolbar>
