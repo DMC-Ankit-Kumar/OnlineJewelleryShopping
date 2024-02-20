@@ -15,6 +15,11 @@ import Wishlist from './pages/Wishlist';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
 import AdminHomePage from './pages/AdminHomePage';
+import Necklace from './pages/Necklace';
+import Ring from './pages/Ring';
+import Earring from './pages/Earring';
+import NoseRing from './pages/NoseRing';
+import ThankYou from './pages/ThankYou';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -32,10 +37,18 @@ root.render(
         <Route path="/home/silver" element={<Silver />} />
         <Route path="/home/diamond" element={<Diamond />} />
         <Route path="/home/platinum" element={<Platinum />} />
+
+        <Route path="/home/necklace" element={<Necklace />} />
+        <Route path="/home/ring" element={<Ring />} />
+        <Route path="/home/earring" element={<Earring />} />
+        <Route path="/home/nosering" element={<NoseRing />} />
+
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<AdminHomePage />} />
+
+        <Route path="/placed" element={<ThankYou />} />
 
       </Routes>
     </Router>

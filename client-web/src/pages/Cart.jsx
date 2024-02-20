@@ -1,52 +1,109 @@
-import React from 'react';
-import { Grid, Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-import { Container } from '@mui/material';
+import { Button, Container, IconButton } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
+import axios from 'axios';
+import config from '../config';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { useNavigate } from 'react-router-dom';
 
-import goldNecklace from '../images/goldNecklace.webp';
-import goldRing from '../images/goldRing.webp';
-import platinumEarring from '../images/platinumEarring.webp';
-import platinumNosering from '../images/platinumNosering.jpg';
 
 const Cart = () => {
-    const list = [
-        { name: 'Gold Necklace', image: goldNecklace, price: '₹150000' },
-        { name: 'Gold Ring', image: goldRing, price: '₹70000' },
-        { name: 'Platinum Earring', image: platinumEarring, price: '₹10000' },
-        { name: 'Platinum Nose Ring', image: platinumNosering, price: '₹6000' },
 
-    ];
+    const [cartItems, setCartItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetchCartItems();
+    }, []);
+
+    useEffect(() => {
+        // Calculate total price whenever cartItems changes
+        calculateTotalPrice();
+    }, [cartItems]);
+
+    const calculateTotalPrice = () => {
+        const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+        setTotalPrice(total);
+    };
+
+    const fetchCartItems = async () => {
+        try {
+            const response = await axios.get(`${config.server}/cart`);
+            console.log(response.data);
+            setCartItems(response.data.data);
+        } catch (error) {
+            console.error('Error fetching cart:', error);
+        }
+    };
+
+    const handleDeleteProduct = async (id) => {
+        try {
+            await axios.delete(`${config.server}/cart/${id}`);
+            console.log("id", id);
+            fetchCartItems();
+        } catch (error) {
+            console.error('Error deleting cart item:', error);
+            alert('An error occurred while deleting the cart item.');
+        }
+    };
+
+    const handlePlaceOrder = () => {
+        // Navigate to ThankYou page
+        navigate('/placed');
+    };
+
+    const handleContinueShopping = () => {
+        // Navigate to home page
+        navigate('/home');
+    };
 
     return (
         <>
             <Navbar />
-            <Container>
-                <Typography variant="h4" align="center" style={{ marginBottom: 20, color: "#832729", fontWeight: "bold", marginTop: 10 }}>
-                    Cart
-                </Typography>
-                <Grid container spacing={3} >
-                    {list.map((product, index) => (
-                        <Grid item xs={12} sm={6} md={3} key={index}>
-                            <Card>
-                                <CardMedia
-                                    component="img"
-                                    alt={product.name}
-                                    height="140"
-                                    image={product.image}
-                                />
-                                <CardContent>
-                                    <Typography variant="h5" component="h2" style={{ color: "#832729", fontWeight: "bold" }}>
-                                        {product.name}
-                                    </Typography>
-                                    <Typography variant="subtitle1" color="inherit" component="p">
-                                        Price: {product.price}
-                                    </Typography>
-
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid>
+            <Container style={{ marginTop: "10px", marginBottom: "10px" }}>
+                <TableContainer component={Paper}>
+                    <Table>
+                        <TableHead>
+                            <TableRow style={{ backgroundColor: "#832729" }}>
+                                <TableCell style={{color: "white"}}>Image</TableCell>
+                                <TableCell style={{color: "white"}}>Name</TableCell>
+                                <TableCell style={{color: "white"}}>Price</TableCell>
+                                <TableCell style={{color: "white"}}>Actions</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {cartItems.map((item, index) => (
+                                <TableRow key={index}>
+                                    <TableCell>
+                                        <img src={config.server + '/' + item.image} alt={item.pname} style={{ width: '50px', height: '50px' }} />
+                                    </TableCell>
+                                    <TableCell>{item.pname}</TableCell>
+                                    <TableCell>{item.price}</TableCell>
+                                    <TableCell>
+                                        <IconButton style={{ color: "#832729" }} aria-label="delete" onClick={() => {
+                                            handleDeleteProduct(item.cartId);
+                                            console.log("id line 81", item.cartId);
+                                        }}>
+                                            <DeleteIcon />
+                                        </IconButton></TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell colSpan={2} />
+                                <TableCell>Total:</TableCell>
+                                <TableCell>{totalPrice}</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <div style={{display: "flex", justifyContent: "space-around", marginTop: "20px"}}>
+                <Button variant="contained" style={{backgroundColor: "#832729"}} onClick={handlePlaceOrder}>Place Order</Button>
+                <Button variant="contained" style={{backgroundColor: "#832729"}} onClick={handleContinueShopping}>Continue Shopping</Button>
+                </div>
             </Container>
         </>
     );

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import config from '../config';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -8,13 +10,28 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [address, setAddress] = useState('');
+  const navigate = useNavigate();
 
-  const handleRegister = () => {
-    console.log('Name:', name);
-    console.log('Mobile:', mobile);
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Address:', address);
+  const handleRegister = async () => {
+    if (!name || !mobile || !email || !password || !address) {
+      alert('Please fill in all fields.');
+      return;
+    }
+    try {
+      const response = await axios.post(`${config.server}/user/register`, {
+        uname: name,
+        mobile,
+        email,
+        password,
+        address,
+      });
+      console.log(response.data); // Assuming the response contains useful information
+      navigate('/');
+
+    } catch (error) {
+      console.error('Error registering:', error);
+      alert('Registration failed. Please try again.');
+    }
   };
 
   return (
@@ -27,7 +44,7 @@ const Register = () => {
           alignItems: 'center',
         }}
       >
-        <Typography style={{color: "#832729", fontWeight: "bold"}} component="h1" variant="h4">
+        <Typography style={{ color: '#832729', fontWeight: 'bold' }} component="h1" variant="h4">
           Register
         </Typography>
         <Box component="form" noValidate sx={{ mt: 1 }}>
@@ -70,7 +87,7 @@ const Register = () => {
             onChange={(e) => setAddress(e.target.value)}
           />
           <Button
-          style={{backgroundColor: "#832729"}}
+            style={{ backgroundColor: '#832729' }}
             type="button"
             fullWidth
             variant="contained"

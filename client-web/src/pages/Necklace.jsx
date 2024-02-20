@@ -7,17 +7,17 @@ import axios from 'axios';
 import config from '../config';
 import { Favorite } from '@material-ui/icons';
 
-const Platinum = () => {
-    const [platinumProducts, setPlatinumProducts] = useState([]);
+const Necklace = () => {
+    const [necklaceProducts, setNecklaceProducts] = useState([]);
 
     useEffect(() => {
-        fetchPlatinumProducts();
+        fetchNecklaceProducts();
     }, []);
 
-    const fetchPlatinumProducts = async () => {
+    const fetchNecklaceProducts = async () => {
         try {
-            const response = await axios.get(`${config.server}/customer/cid/4`);
-            setPlatinumProducts(response.data.data);
+            const response = await axios.get(`${config.server}/customer/sid/1`);
+            setNecklaceProducts(response.data.data);
         } catch (error) {
             console.error('Error fetching products:', error);
         }
@@ -56,7 +56,7 @@ const Platinum = () => {
             <Navbar />
             <Container>
                 <Grid container spacing={3} style={{ marginTop: 10 }}>
-                    {platinumProducts.map((product, index) => (
+                    {necklaceProducts.map((product, index) => (
                         <Grid item xs={12} sm={6} md={3} key={index}>
                             <Card>
                                 <CardMedia
@@ -103,4 +103,4 @@ const Platinum = () => {
     );
 }
 
-export default Platinum;
+export default Necklace;

@@ -29,7 +29,7 @@ const FourCardGridSubCategory = () => {
                         <Button 
                             variant='outlined' 
                             component= {Link}
-                            to="/necklace"
+                            to="/home/necklace"
                             style={{color: "#832729" }}>
                                 Explore
                         </Button>
@@ -49,7 +49,13 @@ const FourCardGridSubCategory = () => {
                         <Typography variant="h5" component="h2" style={{color: "#832729", fontWeight: "bold"}} >
                             Ring
                         </Typography>
-                        <Button variant='outlined' style={{color: "#832729" }}>Explore</Button>
+                        <Button 
+                            variant='outlined' 
+                            component= {Link}
+                            to="/home/ring"
+                            style={{color: "#832729" }}>
+                                Explore
+                        </Button>
                     </CardContent>
                 </Card>
             </Grid>
@@ -66,7 +72,13 @@ const FourCardGridSubCategory = () => {
                         <Typography variant="h5" component="h2" style={{color: "#832729", fontWeight: "bold"}} >
                             Earring
                         </Typography>
-                        <Button variant='outlined' style={{color: "#832729" }}>Explore</Button>
+                        <Button 
+                            variant='outlined' 
+                            component= {Link}
+                            to="/home/earring"
+                            style={{color: "#832729" }}>
+                                Explore
+                        </Button>
                     </CardContent>
                 </Card>
             </Grid>
@@ -84,7 +96,12 @@ const FourCardGridSubCategory = () => {
                             Nose Ring
                         </Typography>
                         <Button 
-                            variant='outlined' style={{color: "#832729" }}>Explore</Button>
+                            variant='outlined' 
+                            component= {Link}
+                            to="/home/nosering"
+                            style={{color: "#832729" }}>
+                                Explore
+                        </Button>
                     </CardContent>
                 </Card>
             </Grid>

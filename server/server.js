@@ -8,6 +8,7 @@ const userRouter = require("./router/user")
 const adminRouter = require("./router/admin")
 const customerRouter = require("./router/customer")
 const cartRouter = require("./router/cart")
+const wishlistRouter = require("./router/wishlist")
 
 
 app.use(cors("*"))
@@ -19,6 +20,7 @@ app.use("/user", userRouter)
 app.use("/admin", adminRouter)
 app.use("/customer", customerRouter)
 app.use("/cart", cartRouter)
+app.use("/wishlist", wishlistRouter)
 
 
 app.listen(7000, "0.0.0.0", () => {

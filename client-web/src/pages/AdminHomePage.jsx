@@ -182,7 +182,7 @@ const AdminHomePage = () => {
             margin="dense"
             id="image"
             label="Image"
-            type="file" 
+            type="file"
             fullWidth
             onChange={handleImageChange}
           />
