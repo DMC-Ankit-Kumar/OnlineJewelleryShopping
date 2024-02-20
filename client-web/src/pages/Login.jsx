@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import axios from 'axios';
+import config from '../config';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    axios.post('http://127.0.0.1:7000/user/login', { email, password })
+    axios.post(`${config.server}/user/login`, { email, password })
     .then(response =>{
       const { status, data } = response.data;
       if (status === 'success'){

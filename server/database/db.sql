@@ -28,17 +28,21 @@ create table products (
 	pid int primary key auto_increment,
 	pname varchar(50),
 	price double,
+	image varchar(100), --image column added
 	cid int,
 	sid int,
 	foreign key(cid) references category(cid),
 	foreign key(sid) references subcategory(sid)
 	);
 
+-- with image
 insert into products values
-	( 0, 'Gold Neckless', 80000.0, 1, 1 ),
-	( 0, 'Gold Ring', 60000.0, 1, 2 ),
-	( 0, 'Gold Earring', 40000.0, 1, 3 ),
-	( 0, 'Gold Nose Ring', 20000.0, 1, 4 );
+	( 0, 'Gold Neckless', 80000.0, 'diamondEarring.png', 1, 1 ),
+	( 0, 'Gold Ring', 60000.0, 'goldRing.webp', 1, 2 ),
+	( 0, 'Gold Earring', 40000.0, 'goldEarring.webp', 1, 3 ),
+	( 0, 'Gold Nose Ring', 20000.0, 'goldNosering.webp', 1, 4 );
+
+-- without image
 insert into products values
 	( 0, 'Silver Neckless', 60000.0, 2, 1 ),
 	( 0, 'Silver Ring', 40000.0, 2, 2 ),
