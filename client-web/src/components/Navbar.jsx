@@ -38,9 +38,9 @@ function Navbar() {
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>
-                        <IconButton color="inherit" component={Link} to="/profile">
+                        {/* <IconButton color="inherit" component={Link} to="/profile">
                             <AccountCircle />
-                        </IconButton>
+                        </IconButton> */}
                         <IconButton color="inherit" component={Link} to="/">
                             <ExitToApp />
                         </IconButton>

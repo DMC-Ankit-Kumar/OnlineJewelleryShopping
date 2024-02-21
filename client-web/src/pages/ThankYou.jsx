@@ -1,7 +1,8 @@
 import { Container, Typography, Button, Avatar } from "@mui/material";
 import { makeStyles } from '@material-ui/core/styles';
 import Navbar from "../components/Navbar";
-import thankYouImg from "../images/thankyou.webp"; // Assuming you have a component for circular images
+import thankYouImg from "../images/thankyou.webp";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -35,7 +36,12 @@ function ThankYou() {
                 <Typography variant="h4" style={{ color: "#832729", marginTop: "20px" }} >
                     Thank you for shopping with us
                 </Typography>
-                <Button variant="contained" style={{ backgroundColor: "#832729", marginTop: "20px" }} className={classes.continueButton}>
+                <Button
+                component={Link}
+                to="/home" 
+                variant="contained" 
+                style={{ backgroundColor: "#832729", marginTop: "20px" }} 
+                className={classes.continueButton}>
                     Continue Shopping
                 </Button>
             </Container>
